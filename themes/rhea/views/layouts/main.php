@@ -40,12 +40,7 @@
 			array('label'=>'Fin Sesión ('.Yii::app()->user->name.')', 'url'=>Yii::app()->user->ui->logoutUrl, 'visible'=>!Yii::app()->user->isGuest),				
                         array('label'=>'Compras', 'url'=>array('/site/vCompras'),
                             'items'=>array(
-                                array('label'=>'Registrar Unidad', 'url'=>array('/unidad/index')),  
-                                array('label'=>'Administrar Material y Equipo', 'url'=>array('/materialEquipo/index')), 
-                                array('label'=>'Gestionar Tipo de Actividad', 'url'=>array('/tipoActividad/index')),
-                                //array('label'=>'Realizar Cronograma', 'url'=>array('/cronograma/index')), 
-                                //array('label'=>'Registrar Aviso', 'url'=>array('/aviso/index')), 
-                                //array('label'=>'Generar Parte de la Unidad', 'url'=>array('/parteUnidad/index')), 
+                                array('label'=>'Gestionar Provedor', 'url'=>array('/provedor/index')),  
 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Ventas', 'url'=>array('/site/vVentas'),
