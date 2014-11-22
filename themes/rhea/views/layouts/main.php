@@ -74,7 +74,7 @@
                         
                     ),
 		)); ?>
-	</div><!-- mainmenu -->
+	</div><!-- mainmenus -->
     </div>    
       
 	<?php if(isset($this->breadcrumbs)):?>
