@@ -3,7 +3,23 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>appFarmaCruz</name>
+            <name>AdmGuardia</name>
         </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Administrar</word>
+            <word>del</word>
+            <word>Editar</word>
+            <word>Estado</word>
+            <word>Estados</word>
+            <word>Estos</word>
+            <word>Gestionar</word>
+            <word>Grupo</word>
+            <word>Nueva</word>
+            <word>Puesto</word>
+            <word>requeridos</word>
+            <word>Unidad</word>
+            <word>Ver</word>
+            <word>Visualizar</word>
+        </spellchecker-wordlist>
     </configuration>
 </project>
