@@ -1,6 +1,6 @@
 <?php
-/* @var $this TipoContactoController */
-/* @var $model TipoContacto */
+/* @var $this CargoController */
+/* @var $model Cargo */
 /* @var $form CActiveForm */
 ?>
 
@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Buscar'); ?>
+		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

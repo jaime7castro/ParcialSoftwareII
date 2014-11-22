@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Tipo Contactos',
+	'Tipo de Contactos',
 );
 
 $this->menu=array(
-	array('label'=>'Create TipoContacto', 'url'=>array('create')),
-	array('label'=>'Manage TipoContacto', 'url'=>array('admin')),
+	array('label'=>'Nuevo Tipo de Contacto', 'url'=>array('create')),
+	array('label'=>'Administrar Tipo de Contacto', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tipo Contactos</h1>
+<h1>Gestionar Tipo de Contacto</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

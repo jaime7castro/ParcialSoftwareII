@@ -1,25 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "TipoContacto".
+ * This is the model class for table "Cargo".
  *
- * The followings are the available columns in table 'TipoContacto':
+ * The followings are the available columns in table 'Cargo':
  * @property integer $id
  * @property string $descripcion
  *
  * The followings are the available model relations:
- * @property ContactoPersona[] $contactoPersonas
- * @property ContactoProvedor[] $contactoProvedors
- * @property ContactoUsuario[] $contactoUsuarios
+ * @property Usuario[] $usuarios
  */
-class TipoContacto extends CActiveRecord
+class Cargo extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'TipoContacto';
+		return 'Cargo';
 	}
 
 	/**
@@ -46,9 +44,7 @@ class TipoContacto extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'contactoPersonas' => array(self::HAS_MANY, 'ContactoPersona', 'TipoContacto_id'),
-			'contactoProvedors' => array(self::HAS_MANY, 'ContactoProvedor', 'TipoContacto_id'),
-			'contactoUsuarios' => array(self::HAS_MANY, 'ContactoUsuario', 'TipoContacto_id'),
+			'usuarios' => array(self::HAS_MANY, 'Usuario', 'Cargo_id'),
 		);
 	}
 
@@ -59,7 +55,7 @@ class TipoContacto extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'descripcion' => 'Tipo de Contacto',
+			'descripcion' => 'Cargo',
 		);
 	}
 
@@ -93,7 +89,7 @@ class TipoContacto extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return TipoContacto the static model class
+	 * @return Cargo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

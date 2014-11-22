@@ -72,11 +72,9 @@
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Personas', 'url'=>array('/site/vPersona'),
                             'items'=>array(
-                                array('label'=>'Usuarios','url'=>Yii::app()->user->ui->userManagementAdminUrl, 'visible'=>!Yii::app()->user->isGuest),
-                                array('label'=>'Tipo de Contacto', 'url'=>array('/tipoContacto/index')), 
-                                //array('label'=>'Asignar Grupo de Guardia', 'url'=>array('/detalleGrupoGuardia/admin')),
-                                //array('label'=>'Registrar Servicio de Guardia', 'url'=>array('/servicioGuardia/index')), 
-                                //array('label'=>'Registrar Novedad', 'url'=>array('/novedad/index')), 
+                                array('label'=>'Cuenta de Usuarios','url'=>Yii::app()->user->ui->userManagementAdminUrl, 'visible'=>!Yii::app()->user->isGuest),
+                                array('label'=>'Gestionar Tipo de Contacto', 'url'=>array('/tipoContacto/index')),  
+                                array('label'=>'Gestionar Cargo', 'url'=>array('/cargo/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         
                         
