@@ -10,7 +10,7 @@ $this->menu=array(
 ?>
 
 
-<h1>Ver Contactos del Provedor</h1>
+<h1>Ver Contactos del Usuario</h1>
 
 
 <?php if($detalleContactoU) {?>
@@ -37,7 +37,7 @@ $this->menu=array(
 </table>
 
 <?php }else{ 
-    echo "<h3>No existen Contactos para esta Unidad</h3>";
+    echo "<h3>No existen Contactos para este Usuario</h3>";
 } 
 
 

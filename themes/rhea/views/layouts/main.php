@@ -64,6 +64,7 @@
                             'items'=>array(
                                 array('label'=>'Cuenta de Usuarios','url'=>Yii::app()->user->ui->userManagementAdminUrl, 'visible'=>!Yii::app()->user->isGuest),
                                 array('label'=>'Gestionar Usuario', 'url'=>array('/usuario/index')),
+                                array('label'=>'Gestionar Cliente', 'url'=>array('/cliente/index')),
                                 array('label'=>'Gestionar Tipo de Contacto', 'url'=>array('/tipoContacto/index')),  
                                 array('label'=>'Gestionar Cargo', 'url'=>array('/cargo/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
