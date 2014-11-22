@@ -65,10 +65,7 @@
                         array('label'=>'Inventario', 'url'=>array('/site/vInventario'),
                             'items'=>array(
                                 array('label'=>'Gestionar puesto de Guardia', 'url'=>array('/puestoGuardia/index')),  
-                                array('label'=>'Gestionar Grupo de Guardia', 'url'=>array('/grupoGuardia/index')), 
-                                //array('label'=>'Asignar Grupo de Guardia', 'url'=>array('/detalleGrupoGuardia/admin')),
-                                //array('label'=>'Registrar Servicio de Guardia', 'url'=>array('/servicioGuardia/index')), 
-                                //array('label'=>'Registrar Novedad', 'url'=>array('/novedad/index')), 
+                                array('label'=>'Gestionar Estanteria', 'url'=>array('/estanteria/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Personas', 'url'=>array('/site/vPersona'),
                             'items'=>array(
