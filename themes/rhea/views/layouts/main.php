@@ -57,7 +57,8 @@
                         array('label'=>'Producto', 'url'=>array('/site/vProducto'),
                             'items'=>array(
                                 array('label'=>'Gestionar Laboratorio', 'url'=>array('/laboratorio/index')), 
-                                array('label'=>'Gestionar Funcion', 'url'=>array('/funcion/index')),   
+                                array('label'=>'Gestionar Funcion', 'url'=>array('/funcion/index')),  
+                                array('label'=>'Gestionar Presentacion', 'url'=>array('/presentacion/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Inventario', 'url'=>array('/site/vInventario'),
                             'items'=>array(
