@@ -5,5 +5,5 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-echo "<center><h3>Seleccione una opción del Módulo INVENTARIO</h3></center>";
+echo "<center><h3>Seleccione una opción del Módulo PERSONA</h3></center>";
 ?>

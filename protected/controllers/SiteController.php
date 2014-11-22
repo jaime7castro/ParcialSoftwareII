@@ -122,6 +122,9 @@ class SiteController extends Controller
         public function actionVInventario(){
             $this->render('vInventario');
         }
+        public function actionVPersona(){
+            $this->render('vInventario');
+        }
         //////////////////////////
         public function filters()
         {
