@@ -47,9 +47,7 @@
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Ventas', 'url'=>array('/site/vVentas'),
                             'items'=>array(
-                                array('label'=>'Gestionar Persona', 'url'=>array('/persona/index')),  
-                                array('label'=>'Gestionar Estado del Personal', 'url'=>array('/estado/index')), 
-                                //array('label'=>'Administrar Estado del Personal ', 'url'=>array('/estadoPersona/admin')),
+                                array('label'=>'Registrar Pedido', 'url'=>array('/pedido/index')),  
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Producto', 'url'=>array('/site/vProducto'),
                             'items'=>array(
