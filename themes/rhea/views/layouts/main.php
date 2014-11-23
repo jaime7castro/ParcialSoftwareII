@@ -42,6 +42,7 @@
                             'items'=>array(
                                 array('label'=>'Gestionar Provedor', 'url'=>array('/provedor/index')),  
                                 array('label'=>'Registrar Lote', 'url'=>array('/lote/index')), 
+                                array('label'=>'Registrar Nota de Ingreso', 'url'=>array('/notaIngreso/index')), 
 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Ventas', 'url'=>array('/site/vVentas'),
