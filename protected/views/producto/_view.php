@@ -23,23 +23,22 @@
 	<?php echo CHtml::encode($data->precioVenta); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->imagen); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Laboratorio_id')); ?>:</b>
-	<?php echo CHtml::encode($data->Laboratorio_id); ?>
+	<?php echo CHtml::encode($data->laboratorio->descripcion); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Estanteria_codigo')); ?>:</b>
-	<?php echo CHtml::encode($data->Estanteria_codigo); ?>
+	<?php echo CHtml::encode($data->estanteriaCodigo->descripcion); ?>
 	<br />
 
-	<?php /*
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Presentacion_id')); ?>:</b>
-	<?php echo CHtml::encode($data->Presentacion_id); ?>
+	<?php echo CHtml::encode($data->presentacion->descripcion); ?>
 	<br />
 
-	*/ ?>
+	
+        <?php echo CHtml::link(CHtml::encode('ingresar a FUNCIONES DEL PRODUCTO'), array('viewDCP', 'id'=>$data->codigo));?>
+        <br>
+        <?php echo CHtml::link(CHtml::encode('ingresar a PRODUCTOS SIMILARES'), array('viewSIM', 'id'=>$data->codigo));?>
 
 </div>

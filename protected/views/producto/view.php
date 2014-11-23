@@ -26,7 +26,6 @@ $this->menu=array(
 		'descripcion',
 		'stock',
 		'precioVenta',
-		'imagen',
                 array(
                   'label'=> 'Laboratorio',
                   'value'=>$model->laboratorio->descripcion, 
@@ -44,4 +43,6 @@ $this->menu=array(
 		//'Presentacion_id',
 	),
 )); ?>
-
+<?php echo CHtml::link(CHtml::encode('ingresar a FUNCIONES DEL PRODUCTO'), array('viewDCP', 'id'=>$model->codigo));?>
+<br>
+<?php echo CHtml::link(CHtml::encode('ingresar a PRODUCTOS SIMILARES'), array('viewSIM', 'id'=>$model->codigo));?>

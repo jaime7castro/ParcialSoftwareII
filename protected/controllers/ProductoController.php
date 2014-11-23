@@ -12,12 +12,9 @@ class ProductoController extends Controller
 	 * @return array action filters
 	 */
 	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
-		);
-	}
+        {
+            return array(array('CrugeAccessControlFilter'));
+        }
 
 	/**
 	 * Specifies the access control rules.
@@ -173,4 +170,85 @@ class ProductoController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionViewDCP($id){
+            $pro=  Producto::model()->findByPK($id);
+            $modelDCP= FuncionProducto::model();         
+            $detalleContactoP=$modelDCP->findAllByAttributes(array('Producto_codigo'=>$id));
+            $this->render('viewDCP',array('detalleContactoP'=>$detalleContactoP,'id'=>$id,'pro'=>$pro));
+        }
+        
+        public function actionUpdateDCP($id){
+            $modelDCP= FuncionProducto::model()->findByPk($id);
+            if(isset($_POST['FuncionProducto']))
+            {
+                $modelDCP->attributes=$_POST['FuncionProducto'];
+                if($modelDCP->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Funcion Producto editado con exito');
+                    $this->redirect(array('viewDCP','id'=>$modelDCP->Producto_codigo));
+                }
+            }       
+            $this->render('updateDCP',array('modelDCP'=>$modelDCP));
+        }
+        
+        public function actionCreateDCP($id){
+            $modelDCP=  new FuncionProducto();
+            if(isset($_POST['FuncionProducto'])){
+                $modelDCP->attributes=$_POST['FuncionProducto'];
+                if($modelDCP->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Funcion Producto guardado con exito');
+                    $this->redirect(array('viewDCP','id'=>$modelDCP->Producto_codigo));
+                }
+            }       
+            $this->render('createDCP',array('modelDCP'=>$modelDCP,'id'=>$id));
+        }
+        
+        public function actionDeleteDCP($id){
+            $modelDCP=  FuncionProducto::model()->findByPk($id);
+            $modelDCP->delete();
+            $this->redirect(array('viewDCP','id'=>$modelDCP->Producto_codigo));
+        }
+        
+        ////////////////PRODUCTOS SIMILARES//////////////
+        public function actionViewSIM($id){
+            $pro=  Producto::model()->findByPK($id);
+            $modelDCP= ProductoSimilar::model();         
+            $detalleContactoP=$modelDCP->findAllByAttributes(array('Producto_codigo'=>$id));
+            $this->render('viewSIM',array('detalleContactoP'=>$detalleContactoP,'id'=>$id,'pro'=>$pro));
+        }
+        
+        public function actionUpdateSIM($id){
+            $modelDCP= ProductoSimilar::model()->findByPk($id);
+            if(isset($_POST['ProductoSimilar']))
+            {
+                $modelDCP->attributes=$_POST['ProductoSimilar'];
+                if($modelDCP->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Producto Similar editado con exito');
+                    $this->redirect(array('viewSIM','id'=>$modelDCP->Producto_codigo));
+                }
+            }       
+            $this->render('updateSIM',array('modelDCP'=>$modelDCP));
+        }
+        
+        public function actionCreateSIM($id){
+            $modelDCP=  new ProductoSimilar();
+            if(isset($_POST['ProductoSimilar'])){
+                $modelDCP->attributes=$_POST['ProductoSimilar'];
+                if($modelDCP->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Producto Similar guardado con exito');
+                    $this->redirect(array('viewSIM','id'=>$modelDCP->Producto_codigo));
+                }
+            }       
+            $this->render('createSIM',array('modelDCP'=>$modelDCP,'id'=>$id));
+        }
+        
+        public function actionDeleteSIM($id){
+            $modelDCP=  ProductoSimilar::model()->findByPk($id);
+            $modelDCP->delete();
+            $this->redirect(array('viewSIM','id'=>$modelDCP->Producto_codigo));
+        }
 }
