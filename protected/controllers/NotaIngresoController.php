@@ -167,4 +167,43 @@ class NotaIngresoController extends Controller
 			Yii::app()->end();
 		}
 	}
+        /////////////////Controlador EL DETALLE//////////////////
+        public function actionViewDNS($id){
+            $modelNS= DetalleNotaIngreso::model();         
+            $model=$modelNS->findAllByAttributes(array('NotaIngreso_id'=>$id));
+            $this->render('viewDNS',array('model'=>$model,'id'=>$id));
+        }
+        
+        public function actionUpdateDNS($id){
+            $model= DetalleNotaIngreso::model()->findByPk($id);
+            if(isset($_POST['DetalleNotaIngreso']))
+            {
+                $model->attributes=$_POST['DetalleNotaIngreso'];
+                if($model->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Detalle Nota de Ingreso editado con exito');
+                    $this->redirect(array('viewDNS','id'=>$model->NotaIngreso_id));
+                }
+            }       
+            $this->render('updateDNS',array('model'=>$model));
+        }
+        
+        public function actionCreateDNS($id){
+            $model=  new DetalleNotaIngreso();
+            if(isset($_POST['DetalleNotaIngreso'])){
+                $model->attributes=$_POST['DetalleNotaIngreso'];
+                if($model->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Detalle Nota de Ingreso guardado con exito');
+                    $this->redirect(array('viewDNS','id'=>$model->NotaIngreso_id));
+                }
+            }       
+            $this->render('createDNS',array('model'=>$model,'id'=>$id));
+        }
+        
+        public function actionDeleteDNS($id){
+            $model= DetalleNotaIngreso::model()->findByPk($id);
+            $model->delete();
+            $this->redirect(array('viewDNS','id'=>$model->NotaIngreso_id));
+        }
 }

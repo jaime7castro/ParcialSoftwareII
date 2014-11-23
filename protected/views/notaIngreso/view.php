@@ -31,3 +31,4 @@ $this->menu=array(
                 ),
 	),
 )); ?>
+<?php echo CHtml::link(CHtml::encode('ingresar al DETALLE'), array('viewDNS', 'id'=>$model->id)); ?>

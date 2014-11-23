@@ -24,6 +24,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Provedor_codigo')); ?>:</b>
 	<?php echo CHtml::encode($data->provedorCodigo->razonSocial); ?>
 	<br />
+        
+        <?php echo CHtml::link(CHtml::encode('ingresar al DETALLE'), array('viewDNS', 'id'=>$data->id)); ?>
 
 
 </div>
