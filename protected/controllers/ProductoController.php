@@ -1,6 +1,6 @@
 <?php
 
-class EstanteriaController extends Controller
+class ProductoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -12,9 +12,12 @@ class EstanteriaController extends Controller
 	 * @return array action filters
 	 */
 	public function filters()
-        {
-            return array(array('CrugeAccessControlFilter'));
-        }
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
 
 	/**
 	 * Specifies the access control rules.
@@ -59,16 +62,19 @@ class EstanteriaController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Estanteria;
+		$model=new Producto;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Estanteria']))
+		if(isset($_POST['Producto']))
 		{
-			$model->attributes=$_POST['Estanteria'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->codigo));
+			$model->attributes=$_POST['Producto'];
+                        $model->imagen=CUploadedFile::getInstance($model,'image');
+			if($model->save()){
+                            $model->imagen->saveAs('/home/jaime3/Public/appFarmaCruz/images/' . CUploadedFile::getInstance($model,'image')->name);
+                            $this->redirect(array('view','id'=>$model->codigo));
+                        }
 		}
 
 		$this->render('create',array(
@@ -88,9 +94,9 @@ class EstanteriaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Estanteria']))
+		if(isset($_POST['Producto']))
 		{
-			$model->attributes=$_POST['Estanteria'];
+			$model->attributes=$_POST['Producto'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->codigo));
 		}
@@ -119,7 +125,7 @@ class EstanteriaController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Estanteria');
+		$dataProvider=new CActiveDataProvider('Producto');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -130,10 +136,10 @@ class EstanteriaController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Estanteria('search');
+		$model=new Producto('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Estanteria']))
-			$model->attributes=$_GET['Estanteria'];
+		if(isset($_GET['Producto']))
+			$model->attributes=$_GET['Producto'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -144,12 +150,12 @@ class EstanteriaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Estanteria the loaded model
+	 * @return Producto the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Estanteria::model()->findByPk($id);
+		$model=Producto::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -157,11 +163,11 @@ class EstanteriaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Estanteria $model the model to be validated
+	 * @param Producto $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='estanteria-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='producto-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

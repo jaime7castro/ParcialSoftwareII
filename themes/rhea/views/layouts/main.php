@@ -51,14 +51,15 @@
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Producto', 'url'=>array('/site/vProducto'),
                             'items'=>array(
+                                array('label'=>'Administrar Producto', 'url'=>array('/producto/index')),
                                 array('label'=>'Gestionar Laboratorio', 'url'=>array('/laboratorio/index')), 
                                 array('label'=>'Gestionar Funcion', 'url'=>array('/funcion/index')),  
                                 array('label'=>'Gestionar Presentacion', 'url'=>array('/presentacion/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Inventario', 'url'=>array('/site/vInventario'),
-                            'items'=>array(
-                                array('label'=>'Gestionar puesto de Guardia', 'url'=>array('/puestoGuardia/index')),  
+                            'items'=>array( 
                                 array('label'=>'Gestionar Estanteria', 'url'=>array('/estanteria/index')), 
+                                array('label'=>'Realizar Nota de Salida', 'url'=>array('/notaSalida/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Personas', 'url'=>array('/site/vPersona'),
                             'items'=>array(
