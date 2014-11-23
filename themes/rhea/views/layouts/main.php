@@ -62,6 +62,7 @@
                             'items'=>array( 
                                 array('label'=>'Gestionar Estanteria', 'url'=>array('/estanteria/index')), 
                                 array('label'=>'Realizar Nota de Salida', 'url'=>array('/notaSalida/index')), 
+                                array('label'=>'Visualizar LoteProducto', 'url'=>array('/loteProducto/index')), 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Personas', 'url'=>array('/site/vPersona'),
                             'items'=>array(
