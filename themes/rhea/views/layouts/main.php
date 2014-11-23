@@ -41,6 +41,7 @@
                         array('label'=>'Compras', 'url'=>array('/site/vCompras'),
                             'items'=>array(
                                 array('label'=>'Gestionar Provedor', 'url'=>array('/provedor/index')),  
+                                array('label'=>'Registrar Lote', 'url'=>array('/lote/index')), 
 
                             ),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Ventas', 'url'=>array('/site/vVentas'),
