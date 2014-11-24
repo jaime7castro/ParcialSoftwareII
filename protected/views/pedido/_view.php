@@ -24,6 +24,8 @@
         <b><?php echo CHtml::encode($data->getAttributeLabel('Nombre del Cliente')); ?>:</b>
 	<?php echo CHtml::encode($data->clienteCi->nombres." ".$data->clienteCi->apPat." ".$data->clienteCi->apMat); ?>
 	<br />
+        
+        <?php echo CHtml::link(CHtml::encode('ingresar al DETALLE'), array('viewDNS', 'id'=>$data->id)); ?>
 
 
 </div>

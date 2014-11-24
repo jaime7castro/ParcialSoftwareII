@@ -12,12 +12,9 @@ class PedidoController extends Controller
 	 * @return array action filters
 	 */
 	public function filters()
-	{
-		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
-		);
-	}
+        {
+            return array(array('CrugeAccessControlFilter'));
+        }
 
 	/**
 	 * Specifies the access control rules.
@@ -170,4 +167,44 @@ class PedidoController extends Controller
 			Yii::app()->end();
 		}
 	}
+        /////////////////Controlador EL DETALLE//////////////////
+        public function actionViewDNS($id){
+            $ped=  Pedido::model()->findByPK($id);
+            $modelNS= DetallePedido::model();         
+            $model=$modelNS->findAllByAttributes(array('Pedido_id'=>$id));
+            $this->render('viewDNS',array('model'=>$model,'id'=>$id,'ped'=>$ped,));
+        }
+        
+        public function actionUpdateDNS($id){
+            $model= DetallePedido::model()->findByPk($id);
+            if(isset($_POST['DetallePedido']))
+            {
+                $model->attributes=$_POST['DetallePedido'];
+                if($model->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Detalle Pedido editado con exito');
+                    $this->redirect(array('viewDNS','id'=>$model->Pedido_id));
+                }
+            }       
+            $this->render('updateDNS',array('model'=>$model));
+        }
+        
+        public function actionCreateDNS($id){
+            $model=  new DetallePedido();
+            if(isset($_POST['DetallePedido'])){
+                $model->attributes=$_POST['DetallePedido'];
+                if($model->save()){
+                    //mostrando mensaje FLASH
+                    Yii::app()->user->setFlash('success','Detalle del Pedido guardado con exito');
+                    $this->redirect(array('viewDNS','id'=>$model->Pedido_id));
+                }
+            }       
+            $this->render('createDNS',array('model'=>$model,'id'=>$id));
+        }
+        
+        public function actionDeleteDNS($id){
+            $model= DetallePedido::model()->findByPk($id);
+            $model->delete();
+            $this->redirect(array('viewDNS','id'=>$model->Pedido_id));
+        }
 }
